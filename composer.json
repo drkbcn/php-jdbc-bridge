@@ -2,6 +2,7 @@
     "name": "jgaydos/php-jdbc-bridge",
     "type": "library",
     "description": "PHP to JDBC bridge",
+    "version": "1.0.0",
     "autoload": {
         "psr-4": { "": "php/" }
     }
