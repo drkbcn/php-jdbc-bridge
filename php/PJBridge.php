@@ -67,12 +67,9 @@ class PJBridge {
 	{
 		$reply = $this->exchange(['connect', $url, $user, $pass]);
 
-		switch ($reply[0]) {
-			case 'ok':
-				return true;
-			default:
-				return false;
-		}
+		if ($reply[0] === 'ok')
+			return true;
+		return false;
 	}
 
 	public function exec(string $query)
@@ -81,46 +78,38 @@ class PJBridge {
 
 		if (func_num_args() > 1) {
 			$args = func_get_args();
-			for ($i = 1; $i < func_num_args(); $i++)
+			for ($i = 1; $i < func_num_args(); ++$i)
 				$cmd_a[] = $args[$i];
 		}
 
 		$reply = $this->exchange($cmd_a);
 
-		switch ($reply[0]) {
-			case 'ok':
-				return $reply[1];
-			default:
-				return false;
-		}
+		if ($reply[0] === 'ok')
+			return $reply[1];
+		return false;
 	}
 
 	public function fetch_array(string $res)
 	{
 		$reply = $this->exchange(['fetch_array', $res]);
 
-		switch ($reply[0]) {
-			case 'ok':
-				$row = [];
-				for ($i = 0; $i < $reply[1]; $i++) {
-					$col = $this->parse_reply($this->sock);
-					$row[$col[0]] = $col[1];
-				}
-				return $row;
-			default:
-				return false;
+		if ($reply[0] === 'ok') {
+			$row = [];
+			for ($i = 0; $i < $reply[1]; ++$i) {
+				$col = $this->parse_reply($this->sock);
+				$row[$col[0]] = $col[1];
+			}
+			return $row;
 		}
+		return false;
 	}
 
 	public function free_result(string $res)
 	{
 		$reply = $this->exchange(['free_result', $res]);
 
-		switch ($reply[0]) {
-			case 'ok':
-				return true;
-			default:
-				return false;
-		}
+		if ($reply[0] === 'ok')
+			return true;
+		return false;
 	}
 }
