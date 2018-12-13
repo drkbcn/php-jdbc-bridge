@@ -1,5 +1,6 @@
 {
     "name": "jgaydos/php-jdbc-bridge",
+    "minimum-stability": "dev",
     "type": "library",
     "description": "PHP to JDBC bridge",
     "version": "1.0.0",
