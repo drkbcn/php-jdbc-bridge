@@ -20,7 +20,8 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-class PJBridge {
+class PJBridge
+{
 
 	private $sock;
 	private $jdbc_enc;
@@ -28,8 +29,12 @@ class PJBridge {
 
 	public $last_search_length = 0;
 
-	public function __construct(string $host = 'localhost', int $port = 4444, string $jdbc_enc = 'ascii', string $app_enc = 'ascii')
-	{
+	public function __construct(
+		string $host = 'localhost',
+		int $port = 4444,
+		string $jdbc_enc = 'ascii',
+		string $app_enc = 'ascii'
+	) {
 		$this->sock = fsockopen($host, $port);
 		$this->jdbc_enc = $jdbc_enc;
 		$this->app_enc = $app_enc;
