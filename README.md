@@ -69,10 +69,10 @@ $connStr = "jdbc:dharma:T:${dbHost}:${dbName}:${dbPort}";
 $db = new PJBridge();
 $result = $db->connect($connStr, $dbUser, $dbPass);
 if(!$result){
-    die("Failed to connect");
+    die("Failed to connect\n");
 }
 
-$cursor = $db->exec("SELECT * FROM \"AR Customer File\"");
+$cursor = $db->exec('SELECT * FROM "AR Customer File"');
 
 while($row = $db->fetch_array($cursor)){
     print_r($row);
