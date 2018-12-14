@@ -5,6 +5,6 @@
     "description": "PHP to JDBC bridge",
     "version": "1.0.0",
     "autoload": {
-        "psr-4": { "": "php/" }
+        "psr-4": { "jgaydos": "php/" }
     }
 }
