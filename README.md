@@ -38,14 +38,14 @@ cd java
 To run the service:
 
 ```sh 
-java -cp 'lib/pjbridge.jar:lib/commons-daemon-1.1.0.jar:lib/<JDBC driver>.jar Server <JDBC driver entry point> <port>
+java -cp 'lib/pjbridge.jar:lib/commons-daemon-1.4.0.jar:lib/<JDBC driver>.jar Server <JDBC driver entry point> <port>
 ```
 
 Example:
 
 ```sh
 cd java
-java -cp 'lib/pjbridge.jar:lib/commons-daemon-1.1.0.jar:lib/dharma.jar' Server dharma.jdbc.DharmaDriver 4444
+java -cp 'lib/pjbridge.jar:lib/commons-daemon-1.4.0.jar:lib/dharma.jar' Server dharma.jdbc.DharmaDriver 4444
 ```
 
 where the lib directory contains the php-jdbc jar, the commons-daemon jar and your JDBC driver jar.
@@ -56,13 +56,13 @@ Example:
 
 ```php
 <?php
-require "PJBridge.php";
+require_once __DIR__ . 'PJBridge.php';
 
-$dbHost = "server";
-$dbName = "";
-$dbPort = "1990";
-$dbUser = "dharma";
-$dbPass = "";
+$dbHost = 'server';
+$dbName = '';
+$dbPort = '1990';
+$dbUser = 'dharma';
+$dbPass = '';
 
 $connStr = "jdbc:dharma:T:${dbHost}:${dbName}:${dbPort}";
 

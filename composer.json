@@ -1,5 +1,5 @@
 {
-    "name": "jgaydos/php-jdbc-bridge",
+    "name": "drkbcn/php-jdbc-bridge",
     "minimum-stability": "dev",
     "type": "library",
     "description": "PHP to JDBC bridge",
